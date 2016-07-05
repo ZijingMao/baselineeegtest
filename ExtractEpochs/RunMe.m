@@ -5,32 +5,19 @@ clear;
 
 ConfigPath;
 
-%% ExtractEpochWithUserTags
-ExtractMultipleEpochWithUserTags;
+%% Extract Epoch With UserTags, set the experiment want to extract
+exp_id = 1;
+% expName(1).name = 'Experiment X6 Speed Control';
+% expName(2).name = 'Experiment X2 Traffic Complexity';
+% expName(3).name = 'Experiment XB Baseline Driving';
+% expName(4).name = 'Experiment XC Calibration Driving';
+% expName(5).name = 'X3 Baseline Guard Duty';
+% expName(6).name = 'X4 Advanced Guard Duty';
+% expName(7).name = 'X2 RSVP Expertise';
+% expName(8).name = 'X1 Baseline RSVP';
+% expName(9).name = 'Experiment X7 Auditory Cueing';
+% expName(10).name = 'Experiment X8 Mind Wandering';
+extract_epoch_user_tags( configs, exp_id );
 
-
-%% SaveEpochMatByExperiment
-SaveMultipleEpochMatByExperiment;
-
-
-%% transform labels and save labels
-GetUniqueLabel;
-
-
-%% select interest labels and experiments: select binary labels
-SelectMultipleLabelsByMatFile;
-
-
-%% concat subjects for each experiment
-% revise your information here
-newDatasetName = 'DRIVING64CHAN';
-datasetName = 'DatasetDrivingPerturbation';
-expStr = [expName(1), expName(2), expName(3), expName(4)];
-samplingRate = 64;
-channelSize = samplingRate;
-timeRange = 'Negative';
-singleFlag = true;
-
-ConcatSubjectTogether;
-
+%% load and save in mat
 

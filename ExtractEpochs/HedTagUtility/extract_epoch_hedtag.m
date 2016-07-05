@@ -11,6 +11,7 @@ channelIdx = 1:256;
 isRejectEpoch = true;
 filterband = [0.1 55];
 epochRange = [-1 1];
+badWindow = [];
 
 if nargin > 2
     if ~(round(nargin/2) == nargin/2)
@@ -37,6 +38,8 @@ if nargin > 2
                 filterband = Value;
             case 'epochrange'
                 epochRange = Value;
+            case 'badwindow'
+                badWindow = Value;
         end
     end
 end
@@ -50,9 +53,6 @@ end
 
 %% Re-channel
 if rechannelRate == 64
-    channel_location = EEG.chanlocs;
-    selectedIdx = [];
-    load chanidx.mat;
     % select correct channel
     EEG.nbchan = 64;
     EEG.data = EEG.data(selectedIdx, :);

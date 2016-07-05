@@ -1,10 +1,5 @@
 
-%% set experiments (change your folder here)
-DefineMultipleExperimentName;
-
 %% config the path
-configs.file_path = 'I:\Level2_256Hz\';
-configs.exp_names = expName;
 configs.config_path = mfilename('fullpath');
 
 [pathstr,~,~] = fileparts(configs.config_path);
@@ -14,6 +9,11 @@ end
 cd(pathstr); cd ..;  % come to the parent folder of the configuration
 configs.workp_path = pwd;
 addpath(genpath(pwd));
+
+
+%% set experiments (change your folder here)
+DefineMultipleExperimentName;
+configs.exp_names = expName;
 
 configs = config_epoch_extract(configs);
 
