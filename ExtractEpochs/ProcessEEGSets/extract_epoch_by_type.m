@@ -111,7 +111,7 @@ if isempty(epochRange)
 %         else
 %             EEG = pop_rmbase(EEG, []);
 %         end
-        EEG.etc.labels = get_epoch_label(EEG, epochLabel(idx_epochLabel));   % TODO: define the function here     
+        EEG.etc.labels = get_epoch_label(EEG, epochLabel(idx_epochLabel), configs.exp_id);   % TODO: define the function here     
     end    
 end
 %==================  Key function =========================================

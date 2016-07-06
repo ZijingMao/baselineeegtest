@@ -16,7 +16,7 @@ configs.DATESTRING = datestr(now, 'mm.dd.yyyy.HH.MM.SS');   % get the unique id 
 % set this location for bad window detection
 configs.windStub = 'I:/BadWindowsBCIT/';
 % set the location for raw eeg data
-configs.file_path = 'I:\Level2_256Hz\';
+configs.file_path = 'E:\BCIT\RAW\';
 % set the save location for processed eeg data
 configs.save_path = 'I:\Level2_256Hz_Epoch\';
 
