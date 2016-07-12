@@ -80,15 +80,15 @@ expName(6).label(2).metric.event{2} = {''};
 expName(7).label(2).metric.event{2} = {''};
 expName(8).label(2).metric.event{2} = {''};
 %==========================================================================
-expName(5).label(3).metric.event{1} = {''};
-expName(6).label(3).metric.event{1} = {''};
-expName(7).label(3).metric.event{1} = {''};
-expName(8).label(3).metric.event{1} = {''};
+expName(5).label(3).metric.event{1} = {'2110', '2120'};
+expName(6).label(3).metric.event{1} = {'2110', '2120'};
+expName(7).label(3).metric.event{1} = {'1311', '1321'}; % 3	Present Image	1	Target	1	Onset;
+expName(8).label(3).metric.event{1} = {'1311', '1321'}; %                   2	Non-target	2	Offset;
 
-expName(5).label(3).metric.event{2} = {''};
-expName(6).label(3).metric.event{2} = {''};
-expName(7).label(3).metric.event{2} = {''};
-expName(8).label(3).metric.event{2} = {''};
+expName(5).label(3).metric.event{2} = {'1311', '1321', '1331', '1341', '1351', '1361', '1312', '1322', '1332', '1342', '1352', '1362'};
+expName(6).label(3).metric.event{2} = {'1311', '1321', '1331', '1341', '1351', '1361', '1312', '1322', '1332', '1342', '1352', '1362'};
+expName(7).label(3).metric.event{2} = {'2111', '2121'}; 
+expName(8).label(3).metric.event{2} = {'2111', '2121'}; 
 %==========================================================================
 expName(9).label(1).metric.event{1} = {''};
 expName(10).label(1).metric.event{1} = {''};

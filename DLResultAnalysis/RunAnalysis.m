@@ -21,7 +21,7 @@ a = testAUCAll(i, 1:j);
 a = a';
 
 %%
-hyper_param_str = 'Lr0.0006';
+hyper_param_str = 'Lr0.006';
 
 DLPATH = ['C:\Users\EEGLab\Documents\result\SelectFeat\' hyper_param_str];
 RLTPATH = ['C:\Users\EEGLab\Dropbox\UTSA Research\Collaboration' ...
@@ -32,7 +32,7 @@ result_folders = {'RSVP_X2_S01_NORM_CH64', ...
     'RSVP_X2_S01_RAWFREQ_CH64', ...
     'RSVP_X2_S01_RAWP300_CH64'};
 folderIdxs = [1, 5, 7, 8];
-for idx = 2:4;
+for idx = 1:length(folderIdxs);
     folderIdx = folderIdxs(idx);
     total_type_size = length(result_folders);
     top16_vals = zeros(16, total_type_size);
@@ -50,6 +50,42 @@ for idx = 2:4;
         
         [top16_vals(:, rlt_fld_idx), top16_models(:, rlt_fld_idx)] = ...
             get_top_16_model(validAUCAll, testAUCAll, setFilesList);
+        
+    end
+    save([RLTPATH '\model' num2str(folderIdx) hyper_param_str '.mat'],...
+        'top16_models', 'top16_vals', 'best1_vals');
+end
+
+%%
+topSize = 16;
+
+hyper_param_str = 'Lr0.006';
+
+DLPATH = ['C:\Users\EEGLab\Documents\result\SelectFeat\' hyper_param_str];
+RLTPATH = ['C:\Users\EEGLab\Dropbox\UTSA Research\Collaboration' ...
+    '\EEGRoomPC\Reports\CSA_Result'];
+
+result_folders = {'RSVP_X2_S01_FREQ_CH64', ...
+    'RSVP_X2_S01_RAWP300FREQ_CH64'};
+folderIdxs = [0, 5];
+for idx = 1:length(folderIdxs);
+    folderIdx = folderIdxs(idx);
+    total_type_size = length(result_folders);
+    top16_vals = zeros(16, total_type_size);
+    top16_models = cell(16, total_type_size);
+    best1_vals = zeros(1, total_type_size);
+    
+    for rlt_fld_idx = 1:total_type_size
+        
+        [ testAUCAll, trainAUCAll, validAUCAll, testAUCMax, testAUCIdx, ...
+            currMaxIdx, setFilesList] = get_one_fold_result...
+            ( DLPATH, result_folders{rlt_fld_idx}, folderIdx );
+        
+        [i,j]=find(validAUCAll == max(max(validAUCAll)));
+        best1_vals(rlt_fld_idx) = testAUCAll(i,j);
+        
+        [top16_vals(:, rlt_fld_idx), top16_models(:, rlt_fld_idx)] = ...
+            get_top_16_model(validAUCAll, testAUCAll, setFilesList, topSize);
         
     end
     save([RLTPATH '\model' num2str(folderIdx) hyper_param_str '.mat'],...
