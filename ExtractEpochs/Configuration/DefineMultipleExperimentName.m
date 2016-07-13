@@ -112,10 +112,10 @@ expName(6).label(2).etime = [];
 expName(7).label(2).etime = [];
 expName(8).label(2).etime = [];
 
-expName(5).label(3).etime = [];
-expName(6).label(3).etime = [];
-expName(7).label(3).etime = [];
-expName(8).label(3).etime = [];
+expName(5).label(3).etime = [-5, 0.1];    % a small offset to grab events
+expName(6).label(3).etime = [-5, 0.1];
+expName(7).label(3).etime = [-1, 0.1];
+expName(8).label(3).etime = [-1, 0.1];
 
 expName(9).label(1).etime = [];
 expName(10).label(1).etime = [];
