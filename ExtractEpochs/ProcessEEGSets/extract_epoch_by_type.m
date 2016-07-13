@@ -112,7 +112,7 @@ if isempty(epochRange)
 %         else
 %             EEG = pop_rmbase(EEG, []);
 %         end
-        EEG.etc.labels = get_epoch_label(EEG, configs, events{2}, 'Zijing');   % TODO: define the function here     
+        EEG.etc.labels = get_epoch_label(EEG, configs, events, 'Zijing');   % TODO: define the function here     
 %     end    
 end
 %==================  Key function =========================================
