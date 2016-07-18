@@ -1,10 +1,9 @@
 
 %%
 
-DLPATH = ['C:\Users\EEGLab\Dropbox\UTSA Research\Collaboration' ...
-    '\EEGRoomPC\Reports\MultiLayerAnalysis'];
+DLPATH = ['C:\Users\EEGLab\Dropbox\UTSA Research\Collaboration\EEGRoomPC\Reports\MultiLayerAnalysis'];
 
-result_folder = 'RSVP_X2_S01_RAW_CH128_FOLD2';
+result_folder = 'RSVP_X2_S01_RAW_CH64';
 
 folderIdx = 7;
 
