@@ -60,15 +60,15 @@ expName(2).label(1).metric.event{2} = {'RT'};
 expName(3).label(1).metric.event{2} = {'RT'};
 expName(4).label(1).metric.event{2} = {'RT'};
 %==========================================================================
-expName(5).label(1).metric.event{1} = {'Image ID onset'};
-expName(6).label(1).metric.event{1} = {'Image ID onset'};
-expName(7).label(1).metric.event{1} = {'Image onset'};
-expName(8).label(1).metric.event{1} = {'Image onset'};
+expName(5).label(1).metric.event{1} = {'2110', '2120'};   % 'Allow press', 'Deny press'
+expName(6).label(1).metric.event{1} = {'2110', '2120'};   % 'Allow press', 'Deny press'
+expName(7).label(1).metric.event{1} = {'1311', '1321'};  % 'Image onset': Target, non-target
+expName(8).label(1).metric.event{1} = {'1311', '1321'};  % 'Image onset': Target, non-target
 
-expName(5).label(1).metric.event{2} = {'Allow press', 'Deny press'};
-expName(6).label(1).metric.event{2} = {'Allow press', 'Deny press'};
-expName(7).label(1).metric.event{2} = {'left button press', 'right button press'};
-expName(8).label(1).metric.event{2} = {'left button press', 'right button press'};
+expName(5).label(1).metric.event{2} = {'1311', '1321', '1331', '1341', '1351', '1361'};   % 'Image ID onset': Target, non-target, non-target, etc...
+expName(6).label(1).metric.event{2} = {'1311', '1321', '1331', '1341', '1351', '1361'};   % 'Image ID onset': Target, non-target, non-target, etc...
+expName(7).label(1).metric.event{2} = {'2121', '2111'};   % 'left button press', 'right button press'
+expName(8).label(1).metric.event{2} = {'2121', '2111'};   % 'left button press', 'right button press'
 %==========================================================================
 expName(5).label(2).metric.event{1} = {''};
 expName(6).label(2).metric.event{1} = {''};
@@ -104,8 +104,8 @@ expName(4).label(1).etime = [-1, 0];
 
 expName(5).label(1).etime = [-5, 0.1];
 expName(6).label(1).etime = [-5, 0.1];
-expName(7).label(1).etime = [0, 1];
-expName(8).label(1).etime = [0, 1];
+expName(7).label(1).etime = [-0.1, 1];
+expName(8).label(1).etime = [-0.1, 1];
 
 expName(5).label(2).etime = [];
 expName(6).label(2).etime = [];

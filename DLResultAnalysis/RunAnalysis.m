@@ -20,17 +20,21 @@ a = testAUCAll(i, 1:j);
 a = a';
 
 %%
-hyper_param_str = 'Lr0.006';
 
-DLPATH = ['C:\Users\EEGLab\Documents\result\SelectFeat\' hyper_param_str];
+% DLPATH = ['C:\Users\EEGLab\Documents\result\SelectFeat\' hyper_param_str];
+DLPATH = ['C:\Users\EEGLab\Desktop\NoxApps\'];
 RLTPATH = ['C:\Users\EEGLab\Dropbox\UTSA Research\Collaboration' ...
     '\EEGRoomPC\Reports\CSA_Result'];
 
-result_folders = {'RSVP_X2_S01_NORM_CH64', ...
-    'RSVP_X2_S01_RAW_CH64', ...
-    'RSVP_X2_S01_RAWFREQ_CH64', ...
-    'RSVP_X2_S01_RAWP300_CH64'};
-folderIdxs = [1, 5, 7, 8];
+best1_vals_all = zeros(5, 10);
+for subID = 2:10
+
+result_folders = {['RSVP_X2_S' num2str(subID, '%02i') '_NORM_CH64'], ...
+    ['RSVP_X2_S' num2str(subID, '%02i') '_RAW_CH64'], ...
+    ['RSVP_X2_S' num2str(subID, '%02i') '_RAWFREQ_CH64'], ...
+    ['RSVP_X2_S' num2str(subID, '%02i') '_NORMFREQ_CH64'], ...
+    ['RSVP_X2_S' num2str(subID, '%02i') '_FREQ_CH64']};
+folderIdxs = [7];
 for idx = 1:length(folderIdxs);
     folderIdx = folderIdxs(idx);
     total_type_size = length(result_folders);
@@ -48,11 +52,14 @@ for idx = 1:length(folderIdxs);
         best1_vals(rlt_fld_idx) = testAUCAll(i,j);
         
         [top16_vals(:, rlt_fld_idx), top16_models(:, rlt_fld_idx)] = ...
-            get_top_16_model(validAUCAll, testAUCAll, setFilesList);
+            get_top_16_model(validAUCAll, testAUCAll, setFilesList, 16);
         
     end
-    save([RLTPATH '\model' num2str(folderIdx) hyper_param_str '.mat'],...
+    save([RLTPATH '\S' num2str(subID, '%02i') 'model' num2str(folderIdx) '.mat'],...
         'top16_models', 'top16_vals', 'best1_vals');
+    best1_vals_all(:, subID ) = top16_vals(end, :);
+end
+
 end
 
 %%
