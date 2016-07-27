@@ -6,7 +6,10 @@ windFile = [windStub configs.exp_names(exp_id).name 'badWindows.mat'];
 badWindows = [];
 load(windFile);
 
+% set input data path
 dataPath = [configs.file_path configs.exp_names(exp_id).name '/'];
+
+% set output data path
 expStub = configs.save_path;
 expPath = [expStub configs.exp_names(exp_id).name '/'];
 
@@ -25,14 +28,14 @@ end
 
 sessionSize = length(files);
 
-if configs.ismultithread
+if configs.ismultithread	
     parfor sessID = 1:sessionSize
         % disp(num2str(sessID));
         filename = files{sessID};
         badWindow = badWindows(sessID);
         parse_one_session( filename, expPath, configs, badWindow );
     end
-else
+else	
     for sessID = 1:sessionSize
         % disp(num2str(sessID));
         filename = files{sessID};

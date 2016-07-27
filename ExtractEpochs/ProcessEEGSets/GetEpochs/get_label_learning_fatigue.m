@@ -17,6 +17,9 @@ for idx = 1:length(epoch)
     [ mattype1 ] = event_strcmp( curr_epoch.eventtype, epoch_event{1} );
     [ mattype2 ] = event_strcmp( curr_epoch.eventtype, epoch_event{2} );
     
+	
+	asdfasdf
+	
     type_event = mattype1 | mattype2;
     
     non_zero_event = find(type_event);
