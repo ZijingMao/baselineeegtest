@@ -82,8 +82,8 @@ expName(8).label(2).metric.event{2} = {''};
 %==========================================================================
 expName(5).label(3).metric.event{1} = {'1311', '1321', '1331', '1341', '1351', '1361'};
 expName(6).label(3).metric.event{1} = {'1311', '1321', '1331', '1341', '1351', '1361'};
-expName(7).label(3).metric.event{1} = {'1311', '1321'}; % 3	Present Image	1	Target	1	Onset;
-expName(8).label(3).metric.event{1} = {'1311', '1321'}; %                   2	Non-target	2	Offset;
+expName(7).label(3).metric.event{1} = {'1311'}; % 3	Present Image	1	Target	1	Onset;
+expName(8).label(3).metric.event{1} = {'1311'}; %                   
 
 expName(5).label(3).metric.event{2} = {'2110', '2120'};
 expName(6).label(3).metric.event{2} = {'2110', '2120'};
