@@ -104,15 +104,15 @@ if isempty(epochRange)
 %         assert(~isempty(epochRange), 'Please check your define the epoch time range');
 %         assert(length(epochRange) == 2, 'Please check epoch time range correct');
         
-        [events, epochRange] = get_epoch_cut_event(configs, 'Zijing');   % TODO: define the function here
-        EEG = pop_epoch(EEG, events, epochRange, 'epochinfo','yes');
+        [events, epochRange] = get_epoch_cut_event(configs, 'Mehdi');   % TODO: define the function here
+        EEG = pop_epoch(EEG, events{1}, epochRange, 'epochinfo','yes');
         EEG = pop_rmbase(EEG, []);
 %         if epochRange(1) < 0
 %             EEG = pop_rmbase(EEG, [1000*epochRange(1) 0]);
 %         else
 %             EEG = pop_rmbase(EEG, []);
 %         end
-        EEG.etc.labels = get_epoch_label(EEG, configs, events, 'Zijing');   % TODO: define the function here     
+        EEG.etc.labels = get_epoch_label(EEG, configs, events, 'Mehdi');   % TODO: define the function here     
 %     end    
 end
 %==================  Key function =========================================

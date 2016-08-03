@@ -50,15 +50,15 @@ expName(10).label(1).behavior = '';
 % -- replace with correct event tags
 % -- event{1} is the event that will extract epoch based on its occur time
 % -- event{2} is the event that will extract epoch based on some threshold
-expName(1).label(1).metric.event{1} = {'Perturbation Onset'};
-expName(2).label(1).metric.event{1} = {'Perturbation Onset'};
-expName(3).label(1).metric.event{1} = {'Perturbation Onset'};
-expName(4).label(1).metric.event{1} = {'Perturbation Onset'};
+expName(1).label(1).metric.event{1} = {'1111','1121'};
+expName(2).label(1).metric.event{1} = {'1111','1121'};
+expName(3).label(1).metric.event{1} = {'1111','1121'};
+expName(4).label(1).metric.event{1} = {'1111','1121'};
 
-expName(1).label(1).metric.event{2} = {'RT'};
-expName(2).label(1).metric.event{2} = {'RT'};
-expName(3).label(1).metric.event{2} = {'RT'};
-expName(4).label(1).metric.event{2} = {'RT'};
+expName(1).label(1).metric.event{2} = {'4311'};
+expName(2).label(1).metric.event{2} = {'4311'};
+expName(3).label(1).metric.event{2} = {'4311'};
+expName(4).label(1).metric.event{2} = {'4311'};
 %==========================================================================
 expName(5).label(1).metric.event{1} = {'Image ID onset'};
 expName(6).label(1).metric.event{1} = {'Image ID onset'};
@@ -97,10 +97,10 @@ expName(9).label(1).metric.event{2} = {''};
 expName(10).label(1).metric.event{2} = {''};
 
 %% lbl etime -- this must be a range
-expName(1).label(1).etime = [-1, 0];
-expName(2).label(1).etime = [-1, 0];
-expName(3).label(1).etime = [-1, 0];
-expName(4).label(1).etime = [-1, 0];
+expName(1).label(1).etime = [-5, 0.1];
+expName(2).label(1).etime = [-5, 0.1];
+expName(3).label(1).etime = [-5, 0.1];
+expName(4).label(1).etime = [-5, 0.1];
 
 expName(5).label(1).etime = [-5, 0];
 expName(6).label(1).etime = [-5, 0];
