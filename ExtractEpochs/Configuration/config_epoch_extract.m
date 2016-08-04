@@ -20,7 +20,7 @@ configs.file_path = 'C:\Users\zyq860\Desktop\BCIT_Epeched_data\Level2_256Hz';
 % set the save location for processed eeg data
 configs.save_path = 'C:\Users\zyq860\Desktop\BCIT_Epeched_data\Level2_256Hz_Epoch';
 
-configs.ismultithread = true;
+configs.ismultithread = false;
 configs.epoch_postfix = '_epoched';
 configs.epoch_type = 'Ehren';
 
