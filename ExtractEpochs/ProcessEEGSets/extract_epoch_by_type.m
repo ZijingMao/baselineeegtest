@@ -67,12 +67,12 @@ end
 %% Re-channel
 if rechannelRate == 64 && configs.exp_names(configs.exp_id).nbchan == 256
     % select correct channel
-%     EEG.nbchan = 64;
-%     EEG.data = EEG.data(configs.chanlocs256to64, :);
-%     EEG.chanlocs = EEG.chanlocs(configs.chanlocs256to64);
-%     EEG.urchanlocs = EEG.urchanlocs(configs.chanlocs256to64);
-%     EEG = eeg_checkset( EEG );
-%     postfix = [postfix '.rechan_' num2str(rechannelRate)];
+    %     EEG.nbchan = 64;
+    %     EEG.data = EEG.data(configs.chanlocs256to64, :);
+    %     EEG.chanlocs = EEG.chanlocs(configs.chanlocs256to64);
+    %     EEG.urchanlocs = EEG.urchanlocs(configs.chanlocs256to64);
+    %     EEG = eeg_checkset( EEG );
+    %     postfix = [postfix '.rechan_' num2str(rechannelRate)];
     channelIdx = configs.chanlocs256to64;
 elseif configs.exp_names(configs.exp_id).nbchan == 64
     channelIdx = 1:64;
@@ -97,23 +97,23 @@ end
 %% epoch extraction
 %==================  Key function =========================================
 if isempty(epochRange)
-%     epochLabel = configs.exp_names(configs.exp_id).label;
+    %     epochLabel = configs.exp_names(configs.exp_id).label;
     % the for loop will be used after code finished
-%     for idx_epochLabel = 1:length(epochLabel)   % extract epoch for each of them
-%         epochRange = epochLabel(idx_epochLabel).etime;
-%         assert(~isempty(epochRange), 'Please check your define the epoch time range');
-%         assert(length(epochRange) == 2, 'Please check epoch time range correct');
-        
-        [events, epochRange] = get_epoch_cut_event(configs, 'Zijing');   % TODO: define the function here
-        EEG = pop_epoch(EEG, events, epochRange, 'epochinfo','yes');
-        EEG = pop_rmbase(EEG, []);
-%         if epochRange(1) < 0
-%             EEG = pop_rmbase(EEG, [1000*epochRange(1) 0]);
-%         else
-%             EEG = pop_rmbase(EEG, []);
-%         end
-        EEG.etc.labels = get_epoch_label(EEG, configs, events, 'Zijing');   % TODO: define the function here     
-%     end    
+    %     for idx_epochLabel = 1:length(epochLabel)   % extract epoch for each of them
+    %         epochRange = epochLabel(idx_epochLabel).etime;
+    %         assert(~isempty(epochRange), 'Please check your define the epoch time range');
+    %         assert(length(epochRange) == 2, 'Please check epoch time range correct');
+    
+    [events, epochRange] = get_epoch_cut_event(configs, configs.epoch_type);   % TODO: define the function here
+    EEG = pop_epoch(EEG, events{1}, epochRange, 'epochinfo','yes');
+    EEG = pop_rmbase(EEG, []);
+    %         if epochRange(1) < 0
+    %             EEG = pop_rmbase(EEG, [1000*epochRange(1) 0]);
+    %         else
+    %             EEG = pop_rmbase(EEG, []);
+    %         end
+    EEG.etc.labels = get_epoch_label(EEG, configs, events, configs.epoch_type);   % TODO: define the function here
+    %     end
 end
 %==================  Key function =========================================
 
@@ -129,8 +129,12 @@ if isRejectEpoch == true
     EEG = pop_jointprob(EEG,1,[1:size(EEG.data,1)] ,8,8,1,0);
     EEG = eeg_rejsuperpose( EEG, 0, 1, 1, 1, 1, 1, 1, 1);
     rejIdx = find(EEG.reject.rejglobal);
-    EEG = pop_rejepoch( EEG, rejIdx, 0);
-    EEG.urevent(rejIdx) = [];
+    if ~isempty(rejIdx)
+        EEG = pop_rejepoch( EEG, rejIdx, 0);
+        EEG.urevent(rejIdx) = [];
+    else
+        EEG.event = [];
+    end
     postfix = [postfix '.rejected'];
 end
 

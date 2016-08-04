@@ -7,7 +7,7 @@ train_y = train_y';
 test_x = squeeze(test_x);
 train_x = squeeze(train_x);
 
-% [train_xx, train_y, test_xx, test_y] = getXDAWNFeature(train_x, train_y, test_x, test_y);
+[train_xx, train_y, test_xx, test_y] = getXDAWNFeature(train_x, train_y, test_x, test_y);
 
 train_x = reshape(train_x, [64*64, size(train_x, 3)])';
 test_x = reshape(test_x, [64*64, size(test_x, 3)])';
@@ -17,12 +17,14 @@ test_x = reshape(test_x, [64*64, size(test_x, 3)])';
 train_x = normalize(train_x, mu, sigma);
 test_x = normalize(test_x, mu, sigma);
 
-% aucXLDA(fold) 	= 	train_classifier(train_xx, train_y, test_xx, test_y, 'LDA');
-% aucLDA(fold) 	= 	train_classifier(train_x, train_y, test_x, test_y, 'LDA');
-% aucXBLDA(fold) 	= 	train_classifier(train_xx, train_y, test_xx, test_y, 'BLDA');
+% run very fast 
+aucXLDA(fold) 	= 	train_classifier(train_xx, train_y, test_xx, test_y, 'LDA');
+aucLDA(fold) 	= 	train_classifier(train_x, train_y, test_x, test_y, 'LDA');
+aucXBLDA(fold) 	= 	train_classifier(train_xx, train_y, test_xx, test_y, 'BLDA');
 aucBLDA(fold)	= 	train_classifier(train_x, train_y, test_x, test_y, 'BLDA');
 
-% aucXSVM(fold) 	= 	train_classifier(train_xx, train_y, test_xx, test_y, 'SVM');
-% aucXBag(fold) 	= 	train_classifier(train_xx, train_y, test_xx, test_y, 'Bag');
-% aucBag(fold) 	= 	train_classifier(train_x, train_y, test_x, test_y, 'Bag');
-% aucSVM(fold) 	= 	train_classifier(train_x, train_y, test_x, test_y, 'SVM');
+% run relative slow 
+aucXSVM(fold) 	= 	train_classifier(train_xx, train_y, test_xx, test_y, 'SVM');
+aucXBag(fold) 	= 	train_classifier(train_xx, train_y, test_xx, test_y, 'Bag');
+aucBag(fold) 	= 	train_classifier(train_x, train_y, test_x, test_y, 'Bag');
+aucSVM(fold) 	= 	train_classifier(train_x, train_y, test_x, test_y, 'SVM');
