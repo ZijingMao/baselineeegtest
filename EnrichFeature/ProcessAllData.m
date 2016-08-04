@@ -140,7 +140,7 @@ std(aucBag_freq_raw)
 
 %%
 parfor subIdx = 1:10
-    concat_feature(subIdx, 'RAW', 'FREQ');
+    concat_feature(subIdx, 'NORM', 'FREQ');
 end
 
 %%

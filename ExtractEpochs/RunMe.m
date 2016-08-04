@@ -6,7 +6,8 @@ clear;
 ConfigPath;
 
 %% Extract Epoch With UserTags, set the experiment want to extract
-exp_id = 3;
+for exp_id = 5:8
+
 % expName(1).name = 'Experiment X6 Speed Control';
 % expName(2).name = 'Experiment X2 Traffic Complexity';
 % expName(3).name = 'Experiment XB Baseline Driving';
@@ -18,6 +19,7 @@ exp_id = 3;
 % expName(9).name = 'Experiment X7 Auditory Cueing';
 % expName(10).name = 'Experiment X8 Mind Wandering';
 extract_epoch_user_tags( configs, exp_id );
+end
 
 %% load and save in mat
 
