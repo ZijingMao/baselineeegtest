@@ -22,7 +22,7 @@ configs.save_path = 'C:\Users\zyq860\Desktop\BCIT_Epeched_data\Level2_256Hz_Epoc
 
 configs.ismultithread = false;
 configs.epoch_postfix = '_epoched';
-configs.epoch_type = 'Ehren';
+configs.epoch_type = 'Mehdi';
 
 end
 

@@ -155,8 +155,7 @@ if isRejectEpoch == true
     postfix = [postfix '.rejected'];
 end
 
-tempo=EEG.etc.labels(setdiff(1:length(EEG.etc.labels),rejIdx));
-EEG.etc.labels=tempo;
+tempo=EEG.etc.labels;
 
 %% epoch combination
 % combine epochs usertag if the event latencies are the same
