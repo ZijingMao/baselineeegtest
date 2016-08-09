@@ -113,6 +113,7 @@ if isempty(epochRange)
     %             EEG = pop_rmbase(EEG, []);
     %         end
     EEG.etc.labels = get_epoch_label(EEG, configs, events, configs.epoch_type);   % TODO: define the function here
+    assert(length(EEG.etc.labels) == length(EEG.epoch), 'Error: epoch size not match');
     %     end
 end
 %==================  Key function =========================================

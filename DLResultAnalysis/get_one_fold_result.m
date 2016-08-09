@@ -9,7 +9,7 @@ function [ testAUCAll, trainAUCAll, validAUCAll, testAUCMax, testAUCIdx, ...
 disp(num2str(folderIdx));
 filePath = [DLPATH '\' result_folder '\' num2str(folderIdx) '\'];
 
-filelist2cell = @(str) extractfield( (dir(str)), 'name' );
+filelist2cell = @(str) extractfields( (dir(str)), 'name' );
 eegDatasetList = filelist2cell(filePath)';
 eegDatasetList(1:2) = [];
 % find auc csv file

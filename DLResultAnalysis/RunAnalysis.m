@@ -22,7 +22,7 @@ a = a';
 %%
 
 % DLPATH = ['C:\Users\EEGLab\Documents\result\SelectFeat\' hyper_param_str];
-DLPATH = ['C:\Users\EEGLab\Desktop\NoxApps\'];
+DLPATH = ['C:\Users\EEGLab\Documents\20160527_RSVP_DATASET\Result\'];
 RLTPATH = ['C:\Users\EEGLab\Dropbox\UTSA Research\Collaboration' ...
     '\EEGRoomPC\Reports\CSA_Result'];
 
@@ -34,7 +34,7 @@ result_folders = {['RSVP_X2_S' num2str(subID, '%02i') '_NORM_CH64'], ...
     ['RSVP_X2_S' num2str(subID, '%02i') '_RAWFREQ_CH64'], ...
     ['RSVP_X2_S' num2str(subID, '%02i') '_NORMFREQ_CH64'], ...
     ['RSVP_X2_S' num2str(subID, '%02i') '_FREQ_CH64']};
-folderIdxs = [7];
+folderIdxs = [5];
 for idx = 1:length(folderIdxs);
     folderIdx = folderIdxs(idx);
     total_type_size = length(result_folders);

@@ -106,7 +106,7 @@ for idx = 1:length(epoch)-1
         event_next_time = non_zero_event(end);
         urevent_next_time = next_epoch.eventurevent{event_next_time};
 
-        local_urevent_start_time = max(curr_epoch, 1);
+        local_urevent_start_time = max(urevent_next_time - 99, 1);
         local_urevent_latency = extractfield(urevent(local_urevent_start_time:urevent_next_time), 'latency');
         tMinus20_latency = urevent(urevent_next_time).latency - 20.0 * srate;
         [ltTimeMinus20] = find(local_urevent_latency < tMinus20_latency);
