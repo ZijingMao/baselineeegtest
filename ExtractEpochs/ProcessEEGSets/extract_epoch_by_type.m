@@ -133,6 +133,7 @@ if isRejectEpoch == true
     if ~isempty(rejIdx)
         EEG = pop_rejepoch( EEG, rejIdx, 0);
         EEG.urevent(rejIdx) = [];
+        EEG.etc.labels(rejIdx) = [];    % also reject the corresponding labels
     else
         EEG.event = [];
     end
