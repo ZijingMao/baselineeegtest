@@ -1,14 +1,14 @@
 function extract_epoch_user_tags( configs, exp_id )
 
 windStub = configs.windStub;
-windFile = [windStub configs.exp_names(exp_id).name 'badWindows.mat'];
+windFile = [windStub '\' configs.exp_names(exp_id).name 'badWindows.mat'];
 
 badWindows = [];
 load(windFile);
 
-dataPath = [configs.file_path configs.exp_names(exp_id).name '/'];
+dataPath = [configs.file_path '\' configs.exp_names(exp_id).name '\'];
 expStub = configs.save_path;
-expPath = [expStub configs.exp_names(exp_id).name '/'];
+expPath = [expStub '\' configs.exp_names(exp_id).name '\'];
 
 disp(['parse experiment: ' configs.exp_names(exp_id).name ...
     ', added into configuration']);
