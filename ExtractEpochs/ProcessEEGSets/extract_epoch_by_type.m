@@ -113,7 +113,6 @@ if isempty(epochRange)
     %             EEG = pop_rmbase(EEG, []);
     %         end
     EEG.etc.labels = get_epoch_label(EEG, configs, events, configs.epoch_type);   % TODO: define the function here
-    assert(length(EEG.etc.labels) == length(EEG.epoch), 'Error: epoch size not match');
     %     end
 end
 %==================  Key function =========================================
@@ -139,6 +138,8 @@ if isRejectEpoch == true
     end
     postfix = [postfix '.rejected'];
 end
+
+assert(length(EEG.etc.labels) == length(EEG.epoch), 'Error: epoch size not match');
 
 %% epoch combination
 % combine epochs usertag if the event latencies are the same
