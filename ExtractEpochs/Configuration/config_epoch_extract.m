@@ -22,7 +22,7 @@ configs.save_path = 'I:\Level2_256Hz_Epoch\';
 
 configs.ismultithread = true;
 configs.epoch_postfix = '_epoched';
-configs.epoch_type = 'Zijing';
+configs.epoch_type = 'Ali';
 
 end
 

@@ -70,15 +70,15 @@ expName(6).label(1).metric.event{2} = {'1311', '1321', '1331', '1341', '1351', '
 expName(7).label(1).metric.event{2} = {'2121', '2111'};   % 'left button press', 'right button press'
 expName(8).label(1).metric.event{2} = {'2121', '2111'};   % 'left button press', 'right button press'
 %==========================================================================
-expName(5).label(2).metric.event{1} = {''};
-expName(6).label(2).metric.event{1} = {''};
-expName(7).label(2).metric.event{1} = {''};
-expName(8).label(2).metric.event{1} = {''};
+expName(5).label(2).metric.event{1} = {'2110', '2120'};   % 'Allow press', 'Deny press'
+expName(6).label(2).metric.event{1} = {'2110', '2120'};   % 'Allow press', 'Deny press'
+expName(7).label(2).metric.event{1} = {'1311', '1321'};  % 'Image onset': Target, non-target
+expName(8).label(2).metric.event{1} = {'1311', '1321'};  % 'Image onset': Target, non-target
 
-expName(5).label(2).metric.event{2} = {''};
-expName(6).label(2).metric.event{2} = {''};
-expName(7).label(2).metric.event{2} = {''};
-expName(8).label(2).metric.event{2} = {''};
+expName(5).label(2).metric.event{2} = {'1311', '1321', '1331', '1341', '1351', '1361'};   % 'Image ID onset': Target, non-target, non-target, etc...
+expName(6).label(2).metric.event{2} = {'1311', '1321', '1331', '1341', '1351', '1361'};   % 'Image ID onset': Target, non-target, non-target, etc...
+expName(7).label(2).metric.event{2} = {'2121', '2111'};   % 'left button press', 'right button press'
+expName(8).label(2).metric.event{2} = {'2121', '2111'};   % 'left button press', 'right button press'
 %==========================================================================
 expName(5).label(3).metric.event{1} = {'1311', '1321', '1331', '1341', '1351', '1361'};
 expName(6).label(3).metric.event{1} = {'1311', '1321', '1331', '1341', '1351', '1361'};
@@ -107,10 +107,10 @@ expName(6).label(1).etime = [-5, 0.1];
 expName(7).label(1).etime = [-0.1, 1];
 expName(8).label(1).etime = [-0.1, 1];
 
-expName(5).label(2).etime = [];
-expName(6).label(2).etime = [];
-expName(7).label(2).etime = [];
-expName(8).label(2).etime = [];
+expName(5).label(2).etime = [-5, 0.1];
+expName(6).label(2).etime = [-5, 0.1];
+expName(7).label(2).etime = [-0.1, 1];
+expName(8).label(2).etime = [-0.1, 1];
 
 expName(5).label(3).etime = [-5, 0.1];    % a small offset to grab events
 expName(6).label(3).etime = [-5, 0.1];
