@@ -157,7 +157,7 @@ if nargin <= 3 | isstr(varargin{1})
 				  'chanlocs'      ''         []                        [] ;
 				  'freqrange'     'real'     [0 srate/2]               [] ;
 				  'memory'        'string'   {'low','high'}           'high' ;
-				  'plot'          'string'   {'on','off'}             'on' ;
+				  'plot'          'string'   {'on','off'}             'off' ;
 				  'plotmean'      'string'   {'on','off'}             'off' ;
 				  'title'         'string'   []                       '';
 				  'limits'        'real'     []                       [nan nan nan nan nan nan];
