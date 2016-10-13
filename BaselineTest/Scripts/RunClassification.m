@@ -13,17 +13,17 @@ aucLDA = zeros(1, maxFold);
 aucBag = zeros(1, maxFold);
 aucBLDA = zeros(1, maxFold);
 
-aucXSVM = zeros(1, maxFold);
-aucXLDA = zeros(1, maxFold);
-aucXBag = zeros(1, maxFold);
-aucXBLDA = zeros(1, maxFold);
+% aucXSVM = zeros(1, maxFold);
+% aucXLDA = zeros(1, maxFold);
+% aucXBag = zeros(1, maxFold);
+% aucXBLDA = zeros(1, maxFold);
 
 for fold = 1:maxFold
 
     tic;
 	%% orginize data
 	[train_x, train_y, test_x, test_y] = arrange_train_test(x, y, fold, maxFold);
-	[train_xx, train_y, test_xx, test_y] = getXDAWNFeature(train_x, train_y, test_x, test_y);
+	% [train_xx, train_y, test_xx, test_y] = getXDAWNFeature(train_x, train_y, test_x, test_y);
 
 	% run test
 	% aucBLDA = XDBLDA_CrossSubject(train_x, train_y, test_x, test_y);
@@ -43,14 +43,14 @@ for fold = 1:maxFold
 	%% run the test for XDAWN features
 	
 	% run test
-	aucXSVM(fold) 	= 	train_classifier(train_xx, train_y, test_xx, test_y, 'SVM');
-	aucXLDA(fold) 	= 	train_classifier(train_xx, train_y, test_xx, test_y, 'LDA');
-	aucXBag(fold) 	= 	train_classifier(train_xx, train_y, test_xx, test_y, 'Bag');
-	aucXBLDA(fold) 	= 	train_classifier(train_xx, train_y, test_xx, test_y, 'BLDA');
+% 	aucXSVM(fold) 	= 	train_classifier(train_xx, train_y, test_xx, test_y, 'SVM');
+% 	aucXLDA(fold) 	= 	train_classifier(train_xx, train_y, test_xx, test_y, 'LDA');
+% 	aucXBag(fold) 	= 	train_classifier(train_xx, train_y, test_xx, test_y, 'Bag');
+% 	aucXBLDA(fold) 	= 	train_classifier(train_xx, train_y, test_xx, test_y, 'BLDA');
 
-    disp(['Subj:' num2str(fold)]);
-    disp(['aucR:' num2str(aucSVM(fold)) num2str(aucLDA(fold)) num2str(aucBag(fold)) num2str(aucBLDA(fold))]);
-    disp(['aucX:' num2str(aucXSVM(fold)) num2str(aucXLDA(fold)) num2str(aucXBag(fold)) num2str(aucXBLDA(fold))]);
+%     disp(['Subj:' num2str(fold)]);
+%     disp(['aucR:' num2str(aucSVM(fold)) num2str(aucLDA(fold)) num2str(aucBag(fold)) num2str(aucBLDA(fold))]);
+%     disp(['aucX:' num2str(aucXSVM(fold)) num2str(aucXLDA(fold)) num2str(aucXBag(fold)) num2str(aucXBLDA(fold))]);
     toc;
     
 end

@@ -42,14 +42,14 @@ a = train_x(train_y==0, :, :);
 a = mean(a, 1);
 a = squeeze(a);
 subplot(2, 1, 1);
-colormap(jet);imagesc(a)
-title('non-target erp');
+colormap(jet);imagesc(a')
+title('normalized subject 1 erp');
 a = train_x(train_y==1, :, :);
 a = mean(a, 1);
 a = squeeze(a);
 subplot(2, 1, 2);
-colormap(jet);imagesc(a)
-title('target erp');
+colormap(jet);imagesc(a')
+title('normalized subject 2 erp');
 
 %%
 test_x = squeeze(test_x);
